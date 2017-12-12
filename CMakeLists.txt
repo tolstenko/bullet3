@@ -434,7 +434,7 @@ install(
 
 # }
 
-set(INCLUDE_INSTALL_DIR "include/bullet" CACHE PATH "The subdirectory to the header prefix")
+set(INCLUDE_INSTALL_DIR "include" CACHE PATH "The subdirectory to the header prefix")
 set(LIB_SUFFIX "" CACHE STRING "Define suffix of directory name (32/64)")
 
 add_subdirectory(src)
