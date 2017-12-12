@@ -395,7 +395,7 @@ ENDIF(BUILD_EXTRAS)
 
 
 
-SUBDIRS(src)
+add_subdirectory(src)
 
 IF("${CMAKE_GENERATOR}" MATCHES "Unix Makefiles")
 	OPTION(INSTALL_LIBS "Set when you want to install libraries" ON)
