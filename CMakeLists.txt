@@ -393,6 +393,47 @@ IF(BUILD_EXTRAS)
   SUBDIRS(Extras)
 ENDIF(BUILD_EXTRAS)
 
+# Installation (https://github.com/forexample/package-example) {
+
+set(config_install_dir "lib/cmake/bullet")
+set(include_install_dir "include")
+
+set(generated_dir "${CMAKE_CURRENT_BINARY_DIR}/generated")
+
+set(version_config "${generated_dir}/bulletConfigVersion.cmake")
+set(project_config "${generated_dir}/bulletConfig.cmake")
+set(TARGETS_EXPORT_NAME "bulletTargets")
+set(namespace "bullet::")
+
+include(CMakePackageConfigHelpers)
+
+write_basic_package_version_file(
+    "${version_config}"
+    VERSION "${BULLET_VERSION}"
+    COMPATIBILITY SameMajorVersion
+)
+
+# Use variables:
+#   * TARGETS_EXPORT_NAME
+configure_package_config_file(
+    "cmake/Config.cmake.in"
+    "${project_config}"
+    INSTALL_DESTINATION "${config_install_dir}"
+)
+
+install(
+    FILES "${project_config}" "${version_config}"
+    DESTINATION "${config_install_dir}"
+)
+
+install(
+    EXPORT "${TARGETS_EXPORT_NAME}"
+    NAMESPACE "${namespace}"
+    DESTINATION "${config_install_dir}"
+)
+
+# }
+
 set(INCLUDE_INSTALL_DIR "include/bullet" CACHE PATH "The subdirectory to the header prefix")
 set(LIB_SUFFIX "" CACHE STRING "Define suffix of directory name (32/64)")
 
