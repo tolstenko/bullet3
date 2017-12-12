@@ -394,6 +394,7 @@ IF(BUILD_EXTRAS)
 ENDIF(BUILD_EXTRAS)
 
 set(INCLUDE_INSTALL_DIR "include/bullet" CACHE PATH "The subdirectory to the header prefix")
+set(LIB_SUFFIX "" CACHE STRING "Define suffix of directory name (32/64)")
 
 add_subdirectory(src)
 
@@ -417,7 +418,6 @@ IF(INSTALL_LIBS)
 		ENDIF (${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION} GREATER 2.5)
 	ENDIF(BUILD_EXTRAS)
 
-	SET (LIB_SUFFIX "" CACHE STRING "Define suffix of directory name (32/64)" )
 	SET (LIB_DESTINATION "lib${LIB_SUFFIX}" CACHE STRING "Library directory name")
 	## the following are directories where stuff will be installed to
 	SET(PKGCONFIG_INSTALL_PREFIX "lib${LIB_SUFFIX}/pkgconfig/" CACHE STRING "Base directory for pkgconfig files")
