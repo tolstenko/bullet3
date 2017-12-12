@@ -282,6 +282,10 @@ IF (APPLE)
 ENDIF()
 
 OPTION(BUILD_BULLET3 "Set when you want to build Bullet 3" ON)
+
+OPTION(BUILD_PYBULLET "Set when you want to build pybullet (Python bindings for Bullet)" OFF)
+if(BUILD_PYBULLET)
+
 # Optional Python configuration
 # builds pybullet automatically if all the requirements are met
 SET(PYTHON_VERSION_PYBULLET "" CACHE STRING "Python version pybullet will use.")
@@ -300,7 +304,8 @@ SET(DEFAULT_BUILD_PYBULLET OFF)
 IF(PYTHONLIBS_FOUND)
 	SET(DEFAULT_BUILD_PYBULLET ON)
 ENDIF(PYTHONLIBS_FOUND)
-OPTION(BUILD_PYBULLET "Set when you want to build pybullet (Python bindings for Bullet)" ${DEFAULT_BUILD_PYBULLET})
+
+endif()
 
 OPTION(BUILD_ENET "Set when you want to build apps with enet UDP networking support" ON)
 OPTION(BUILD_CLSOCKET "Set when you want to build apps with enet TCP networking support" ON)
