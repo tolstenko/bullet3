@@ -306,7 +306,6 @@ IF(BUILD_PYBULLET)
 	FIND_PACKAGE(PythonLibs ${PYTHON_VERSION_STRING} EXACT)
 ENDIF(BUILD_PYBULLET)
 
-endif()
 
 OPTION(BUILD_ENET "Set when you want to build apps with enet UDP networking support" ON)
 OPTION(BUILD_CLSOCKET "Set when you want to build apps with enet TCP networking support" ON)
